@@ -1,11 +1,9 @@
 [sapioNotes](https://notes.sapioweb.com/)
 =========
 
-## OpenSource note-taking & archiving
-
+## Installation
 This repository contains all required structuring and unifying components for sapioNotes.
 
-## Building
 #### Technical Requirements
 - node
 - npm
