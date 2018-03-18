@@ -3,7 +3,7 @@
 
 ## OpenSource note-taking & archiving
 
-This repository is structuring and unifying all required components for Paperwork.
+This repository contains all required structuring and unifying components for sapioNotes.
 
 ## Building
 #### Technical Requirements
