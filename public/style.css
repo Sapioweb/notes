@@ -1,0 +1,35 @@
+html, body, .full-height {
+    height: 95%;
+}
+
+.markdown-input {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+
+    border: none;
+    border-bottom: 1px solid #ddd;
+    overflow: auto;
+    outline: none;
+    resize: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.container {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.card {
+    margin-bottom: 30px;
+    transition: .5s;
+    border: 0;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+}
