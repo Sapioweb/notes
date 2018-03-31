@@ -19,7 +19,7 @@ app.use(bugsnag.requestHandler)
 app.use(bugsnag.errorHandler)
 
 // Connect to mongodb instance
-mongoose.connect('mongodb://' + process.env.DATABASE_USER + ':' + process.env.DATEBASE_PASSWORD + '@' + process.env.DATABASE_HOST);
+mongoose.connect('mongodb://' + process.env.DATABASE_USER + ':' + process.env.DATABASE_PASSWORD + '@' + process.env.DATABASE_HOST);
 
 // Parse request body to recieve ajax data
 app.use(bodyParser.urlencoded({ extended: true }));
