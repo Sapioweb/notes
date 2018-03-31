@@ -4,18 +4,33 @@
 
 <section class="container">
     <div class="row">
-        <div class="col-md-12">
+        <form class="form-group" action="/search" method="get">
+            <div class="input-group mr-auto">
+                <input class="btn btn-outline-success" type="submit" id="search-notes" value="Search">
+                <input class="form-control ml-sm-3 my-sm-1" type="search" placeholder="Search" aria-label="Search" name="q">
+            </div>
+        </form>
+    </div>
+
+    <% if(q != undefined) { %>
+        <div class="row mb-5">
             <strong>Query:</strong> <%= q %> Returned <%= results_count %> results
         </div>
+    <% } %>
 
+    <div class="row">
         <% for(var i=0; i < notes.length; i++) { %>
-            <div class="col-md-12">
-                <h4><strong><%= notes[i]['title'] %></strong></h4>
-                <p><%= notes[i]['description'] %></p>
-                <div>
-                    <a href="/note/<%= notes[i]['slug'] %>">View</a>
-                    <a href="/edit/<%= notes[i]['slug'] %>">Edit</a>
-                </div>
+            <div class="card col-md-12 mb-5">
+              <div class="card-body">
+                <h5 class="card-title"><%= notes[i]['title'] %></h5>
+
+                <blockquote class="blockquote mb-0">
+                  <p><%= notes[i]['description'] %></p>
+                </blockquote>
+
+                <a href="/note/<%= notes[i]['slug'] %>" class="card-link">View Note</a>
+                <a href="/edit/<%= notes[i]['slug'] %>" class="card-link">Edit</a>
+              </div>
             </div>
         <% } %>
 	</div>

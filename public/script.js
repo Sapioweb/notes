@@ -1,35 +1,38 @@
 $(document).ready(function() {
     $('body').bootstrapMaterialDesign();
-})
 
-$('#save-note').on('click', function () {
-    var title = $('input[name=title]').val()
-    var description = $('input[name=description]').val()
-    var content = $('textarea[name=content]').val()
-
-    var createData = {
-        title: title,
-        description: description,
-        content: content
-    }
-
-    $.post(window.location.pathname, createData, function(data, status){
-        console.log(status);
-    });
-})
-
-$('#edit-note').on('click', function () {
-    var title = $('input[name=title]').val()
-    var description = $('input[name=description]').val()
-    var content = $('textarea[name=content]').val()
-
-    var updateData = {
-        title: title,
-        description: description,
-        content: content
-    }
-
-    $.post(window.location.pathname, updateData, function(data, status){
-        console.log(status);
+    /**
+     * Create note function
+     * @return {array} Returned array of data
+     */
+    $('#save-note').on('click', function () {
+        postData({
+            title: $('input[name=title]').val(),
+            description: $('input[name=description]').val(),
+            content: $('textarea[name=content]').val()
+        })
     })
+
+    /**
+     * Edit note function
+     * @return {array} Returned array of data
+     */
+    $('#edit-note').on('click', function () {
+        postData({
+            title: $('input[name=title]').val(),
+            description: $('input[name=description]').val(),
+            content: $('textarea[name=content]').val()
+        })
+    })
+
+    /**
+     * Posting abstraction to API
+     * @param  {object} data Data to be passed to API
+     * @return {array}       Returned array of data
+     */
+    function postData(data) {
+        $.post(window.location.pathname, data, function(data, status){
+            console.log(data)
+        })
+    }
 })
