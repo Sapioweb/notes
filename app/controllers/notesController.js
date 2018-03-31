@@ -7,9 +7,7 @@ var Notes = require('../models/notes')
 exports.index = async function(req, res) {
     var notes = await Notes.find().limit(20).sort({ created_at: 'desc'})
 
-    res.render('search', {
-        q: req.query.q,
-        results_count: notes.length,
+    res.render('index', {
         notes: notes
     })
 }
