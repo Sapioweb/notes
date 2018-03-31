@@ -1,15 +1,11 @@
 body {
-    background-color: #fff;
+    background-color: #fafafa;
 }
 
 html, body, .full-height {
-    height: 96%;
+    height: 90%;
 }
 
 .markdown-input {
     margin-bottom: 2rem;
-}
-
-.markdown-body {
-	min-width: 200px;
 }
