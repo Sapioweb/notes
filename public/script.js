@@ -6,7 +6,7 @@ $(document).ready(function() {
      * @return {array} Returned array of data
      */
     $('#save-note').on('click', function () {
-        postData({
+        postData(window.location.pathname, {
             title: $('input[name=title]').val(),
             description: $('input[name=description]').val(),
             content: $('textarea[name=content]').val()
@@ -18,11 +18,15 @@ $(document).ready(function() {
      * @return {array} Returned array of data
      */
     $('#edit-note').on('click', function () {
-        postData({
+        postData(window.location.pathname, {
             title: $('input[name=title]').val(),
             description: $('input[name=description]').val(),
             content: $('textarea[name=content]').val()
         })
+    })
+
+    $('a.delete-note').on('click', function () {
+        postData('/note/delete/' + this.getAttribute('data-id'))
     })
 
     /**
@@ -30,8 +34,8 @@ $(document).ready(function() {
      * @param  {object} data Data to be passed to API
      * @return {array}       Returned array of data
      */
-    function postData(data) {
-        $.post(window.location.pathname, data, function(data, status){
+    function postData(path, data) {
+        $.post(path, data, function(data, status){
             console.log(data)
         })
     }

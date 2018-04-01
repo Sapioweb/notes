@@ -3,14 +3,8 @@
 <% block('title', 'Search results') %>
 
 <section class="container">
-    <div class="row">
-        <form class="form-group" action="/search" method="get">
-            <div class="input-group mr-auto">
-                <input class="btn btn-outline-success" type="submit" id="search-notes" value="Search">
-                <input class="form-control ml-sm-3 my-sm-1" type="search" placeholder="Search" aria-label="Search" name="q">
-            </div>
-        </form>
-    </div>
+
+    <% include partials/search %>
 
     <% if(q != undefined) { %>
         <div class="row mb-5">
