@@ -12,12 +12,6 @@ exports.index = async function(req, res) {
     })
 }
 
-/**
- * Get method for editing a note
- * @param  {object} req Requested data
- * @param  {object} res Response object to send back
- * @return {view}       View and data rendering
- */
 exports.getEdit = async function(req, res) {
     var note = await Notes.findOne({slug: req.params.slug}).exec()
 
