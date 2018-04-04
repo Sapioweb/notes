@@ -46,6 +46,12 @@ exports.postEdit = async function(req, res) {
     res.send(note)
 }
 
+exports.deleteNote = async function(req, res) {
+    var note = await Notes.remove({_id: req.params.id})
+
+    res.send(note)
+}
+
 exports.postNewNote = async function(req, res) {
     var note = new Notes({
         title: req.body.title,

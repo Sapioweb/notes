@@ -18,4 +18,6 @@ router.post('/new', notesController.postNewNote)
 
 router.get('/note/:slug', notesController.getNote)
 
+router.post('/note/delete/:id', notesController.deleteNote)
+
 module.exports = router
