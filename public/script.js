@@ -23,7 +23,9 @@ $(document).ready(function() {
 
     function postData(path, data) {
         $.post(path, data, function(data, status){
-            console.log(data)
+            if (status == 'success') {
+                location.reload()
+            }
         })
     }
 })
