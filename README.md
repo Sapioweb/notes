@@ -28,4 +28,5 @@ You can now navigate to `localhost:3000`. The default port is *3000*. If for any
 
 
 ## Todo
-- [ ] On successful ajax request, show success message
+- [ ] On successful ajax request, show success message and redirect
+- [ ] On adding new note, update or create if same title/slugs
