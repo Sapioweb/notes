@@ -1,0 +1,15 @@
+<% for(var i=0; i < notes.length; i++) { %>
+    <div class="card col-md-12 mb-5">
+      <div class="card-body">
+        <h5 class="card-title"><%= notes[i]['title'] %></h5>
+
+        <blockquote class="blockquote mb-0">
+          <p><%= notes[i]['description'] %></p>
+        </blockquote>
+
+        <a href="/note/<%= notes[i]['slug'] %>" class="card-link">View Note</a>
+        <a href="/edit/<%= notes[i]['slug'] %>" class="card-link">Edit</a>
+        <a href="#" data-id="<%= notes[i]['_id'] %>" class="card-link delete-note">Delete</a>
+      </div>
+    </div>
+<% } %>
