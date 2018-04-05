@@ -8,16 +8,16 @@ router.get('/', notesController.index)
 
 router.get('/edit/:slug', notesController.getEdit)
 
-router.post('/edit/:slug', notesController.postEdit)
+router.post('/edit/:slug', apiController.postEdit)
 
 router.get('/search', notesController.searchNotes)
 
 router.get('/new', notesController.getNewNote)
 
-router.post('/new', notesController.postNewNote)
+router.post('/new', apiController.postNewNote)
 
 router.get('/note/:slug', notesController.getNote)
 
-router.post('/note/delete/:id', notesController.deleteNote)
+router.post('/note/delete/:id', apiController.deleteNote)
 
 module.exports = router

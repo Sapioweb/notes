@@ -5,9 +5,10 @@ var fs = require("fs")
 var Notes = require('../models/notes')
 
 exports.index = async function(req, res) {
-    var notes = await Notes.find().limit(20).sort({ created_at: 'desc'})
+    var notes = await Notes.find().sort({ created_at: 'desc'})
 
     res.render('index', {
+        results_count: notes.length,
         notes: notes
     })
 }
@@ -31,36 +32,11 @@ exports.getNewNote = function(req, res) {
 }
 
 exports.searchNotes = async function(req, res) {
-    var notes = await Notes.find({title: req.query.q}).sort({ 'created_at': -1 }).exec()
+    var notes = await Notes.find({title: { $regex: new RegExp(req.query.q.toLowerCase(), "i") }}).sort({ 'created_at': -1 }).exec()
 
     res.render('search', {
         q: req.query.q,
         results_count: notes.length,
         notes: notes
     })
-}
-
-exports.postEdit = async function(req, res) {
-    var note = await Notes.findOneAndUpdate({slug: req.params.slug}, req.body)
-
-    res.send(note)
-}
-
-exports.deleteNote = async function(req, res) {
-    var note = await Notes.remove({_id: req.params.id})
-
-    res.send(note)
-}
-
-exports.postNewNote = async function(req, res) {
-    var note = new Notes({
-        title: req.body.title,
-        description: req.body.description,
-        content: req.body.content,
-        slug: req.body.title.replace(/\s+/g, '-').toLowerCase()
-    })
-
-    note.save()
-
-    res.send(note)
 }
