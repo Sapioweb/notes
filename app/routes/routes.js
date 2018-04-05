@@ -3,6 +3,7 @@ var router = express.Router()
 
 // Controllers
 var notesController = require('../controllers/notesController')
+var apiController = require('../controllers/apiController')
 
 router.get('/', notesController.index)
 

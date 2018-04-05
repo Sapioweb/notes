@@ -1,5 +1,4 @@
 var showdown = require('showdown')
-var fs = require("fs")
 
 // Models
 var Notes = require('../models/notes')
