@@ -26,6 +26,6 @@ exports.postNewNote = async function(req, res) {
             throw new Error(err)
         }
 
-        res.redirect(note)
+        res.send(note)
     })
 }
