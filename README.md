@@ -33,3 +33,5 @@ You can now navigate to `localhost:3000`. The default port is *3000*. If for any
 - [ ] do not allow empty save
 - [ ] force title require
 - [x] Show total notes on home
+- [ ] Ability to edit not from view page
+- [ ] Add title to view
