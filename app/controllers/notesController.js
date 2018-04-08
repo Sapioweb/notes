@@ -31,7 +31,13 @@ exports.getNewNote = function(req, res) {
 }
 
 exports.searchNotes = async function(req, res) {
-    var notes = await Notes.find({title: { $regex: new RegExp(req.query.q.toLowerCase(), "i") }}).sort({ 'created_at': -1 }).exec()
+    var re = new RegExp(req.query.q.toLowerCase(), 'i');
+
+    var notes = await Notes.find().or([
+        {title: { $regex: re }},
+        {description: { $regex: re }},
+        {content: { $regex: re }}
+    ]).sort({ 'created_at': -1 }).exec()
 
     res.render('search', {
         q: req.query.q,
