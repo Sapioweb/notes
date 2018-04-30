@@ -23,7 +23,7 @@ exports.getNote = async function(req, res) {
 
     var converter = new showdown.Converter()
 
-    res.render('note', {content: converter.makeHtml(note.content)})
+    res.render('note', {title: note.title, content: converter.makeHtml(note.content)})
 }
 
 exports.getNewNote = function(req, res) {
